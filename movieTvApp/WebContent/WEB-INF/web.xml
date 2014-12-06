@@ -27,7 +27,7 @@
   </servlet-mapping>
   <servlet>
   	<servlet-name>SearchMovieServlet</servlet-name>
-  	<servlet-class>neu.cs5200.movieTv.user.SearchMovieServlet</servlet-class>
+  	<servlet-class>neu.cs5200.movieTv.movie.SearchMovieServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>SearchMovieServlet</servlet-name>

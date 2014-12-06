@@ -10,7 +10,7 @@
 
 <body>
 	<form action="search">
-		<input type="search" name="movieName" class="form-control" placeholder="Movie Name">
+		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">
 				
 		<button type="submit" class="btn btn-primary">Search</button>
 	</form>
