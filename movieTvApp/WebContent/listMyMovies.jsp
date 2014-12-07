@@ -9,7 +9,12 @@
 
 </head>
 <body>
-<h1>Favorite Movies</h1>
+<ul class="nav nav-tabs">
+	<li role="presentation" class="active"><a href="#">Home</a></li>
+  	<li role="presentation"><a href="/movieTvApp/popularMovies.jsp">Movie</a></li>
+  	<li role="presentation"><a href="/movieTvApp/popularTvs.jsp">TV</a></li>
+  	<li role="presentation"><a href="/movieTvApp/people.jsp">People</a></li>
+</ul>
 <%
 	User user = (User) request.getAttribute("user");
 	User2MovieDao umDao = new User2MovieDao();
@@ -23,24 +28,26 @@
 	} 
 	
 	System.out.println(user.getId());
-%>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Release Date</th>
-				<th>Overview</th>
-			</tr>
-		</thead>
-	<%for(Movie movie : movieList) { %>
-		<tbody>
-			<tr>
-				<td><%= movie.getTitle()%></td>
-				<td><%= movie.getReleaseDate()%></td>
-				<td><%= movie.getOverview()%></td>
-			</tr>
-		</tbody>
-		<%} %>
-	</table>
+%>    
+
+
+<div class="container">
+  <div class="row">
+  <%for(Movie movie : movieList) { %>
+    <div class="col-xs-6 col-md-3">
+	    <div class="thumbnail">   
+     	  <img src="<%= movie.getPosterPath()%>">   	
+     	  <div class="caption">
+     	    Release Date: <%= movie.getReleaseDate() %>
+        	<h3><%= movie.getTitle()%></h3>
+        	<p><%= movie.getOverview() %></p>
+        	<a href="/movieTvApp/movieInfo.jsp?movieId=<%= movie.getId() %>" class="btn btn-primary">Detail</a>
+        	
+      	  </div>       
+        </div>  
+    </div>
+   <%} %>	
+  </div>
+</div>
 </body>
 </html>

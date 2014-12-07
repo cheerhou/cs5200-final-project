@@ -26,11 +26,11 @@
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>SearchMovieServlet</servlet-name>
-  	<servlet-class>neu.cs5200.movieTv.movie.SearchMovieServlet</servlet-class>
+    <servlet-name>SearchMovieServlet</servlet-name>
+    <servlet-class>neu.cs5200.movieTv.movie.SearchMovieServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>SearchMovieServlet</servlet-name>
-  	<url-pattern>/search</url-pattern>
+    <servlet-name>SearchMovieServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping>
 </web-app>

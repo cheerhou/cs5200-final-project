@@ -11,16 +11,19 @@
 <body>
 <div class="container">
 	<h1>Register</h1>
-	<form action="register" method="post">
-		Username:
-		<input name="username" class="form-control"/>
+	<form class="form-signin" action="register" method="post">
+		<div class="form-group">
+			Username:
+			<input name="username" class="form-control"/>
+		</div>
 		
-		Password:
-		<input name="password" type="password" class="form-control"/>
-		
+		<div class="form-group">
+			Password:
+			<input name="password" type="password" class="form-control"/>
+		</div>
+	
 		<button class="btn btn-primary btn-block">Register</button>
 	</form>
-
 </div>
 
 </body>
