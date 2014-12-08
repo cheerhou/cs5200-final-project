@@ -9,27 +9,34 @@
 
 </head>
 <body>
-<ul class="nav nav-tabs">
-	<li role="presentation" class="active"><a href="#">Home</a></li>
-  	<li role="presentation"><a href="/movieTvApp/popularMovies.jsp">Movie</a></li>
-  	<li role="presentation"><a href="/movieTvApp/popularTvs.jsp">TV</a></li>
-  	<li role="presentation"><a href="/movieTvApp/people.jsp">People</a></li>
-</ul>
+
 <%
 	User user = (User) request.getAttribute("user");
 	User2MovieDao umDao = new User2MovieDao();
 	List<Integer> movieIdList = umDao.findMovieIdByUserId(user.getId());
-	
+
 	MovieJsonWebServiceClient movieJsonClient = new MovieJsonWebServiceClient();
 	ArrayList<Movie> movieList = new ArrayList<Movie>();
-	
+
 	for(int movieId : movieIdList) {
 		movieList.add(movieJsonClient.findMovieById(movieId));
 	} 
-	
-	System.out.println(user.getId());
-%>    
 
+	//System.out.println(user.getId());
+%> 
+
+<ul class="nav nav-tabs">
+	<li role="presentation" class="active"><a href="#">Home</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/popularMovies.jsp?userId=<%= user.getId()%>">Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/popularTvs.jsp">TV</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/people.jsp">People</a></li>
+  	
+	<form class="navbar-form navbar-left" action="search">
+		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">			
+		<button type="submit" class="btn btn-primary">Search</button>
+	</form>
+</ul>
+   
 
 <div class="container">
   <div class="row">
@@ -41,7 +48,7 @@
      	    Release Date: <%= movie.getReleaseDate() %>
         	<h3><%= movie.getTitle()%></h3>
         	<p><%= movie.getOverview() %></p>
-        	<a href="/movieTvApp/movieInfo.jsp?movieId=<%= movie.getId() %>" class="btn btn-primary">Detail</a>
+        	<a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId() %>" class="btn btn-primary">Detail</a>
         	
       	  </div>       
         </div>  

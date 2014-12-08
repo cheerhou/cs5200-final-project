@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/SearchMovieServlet")
+@WebServlet(name = "SearchMovieServlet", urlPatterns = { "/search" })
 public class SearchMovieServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

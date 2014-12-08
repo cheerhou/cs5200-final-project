@@ -18,6 +18,12 @@ public class User2MovieDao {
 		ma = factory.createEntityManager();
 	}
 	
+	public void markMovie(User2Movie um) {
+		ma.getTransaction().begin();
+		ma.persist(um);
+		ma.getTransaction().commit();
+	}
+	
 	public List<Integer> findMovieIdByUserId(int userId) {
 		ma.getTransaction().begin();
 		

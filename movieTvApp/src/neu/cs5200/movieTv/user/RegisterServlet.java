@@ -39,12 +39,12 @@ public class RegisterServlet extends HttpServlet {
 			
 			//pass user object to next page
 			request.setAttribute("user", user);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/search.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/listMyMovies.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
 			System.out.println("User already exist!");
-			response.sendRedirect("/movieTvApp/register.jsp");
+			response.sendRedirect("/MovieTvApp/register.jsp");
 		}
 		
     }

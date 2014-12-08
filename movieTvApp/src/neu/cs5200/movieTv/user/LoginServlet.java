@@ -18,7 +18,6 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		System.out.println("Hello from Login Servlet " + username + " "  + password);
 		
 		UserDao userDao = new UserDao();
 		

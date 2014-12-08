@@ -14,24 +14,24 @@
 	List<Movie> movies = client.findMovieByMovieName(movieName);
 %>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Release Date</th>
-				<th>Overview</th>
-			</tr>
-		</thead>
-	<%for(Movie movie : movies) { %>
-		<tbody>
-			<tr>
-				<td><%= movie.getTitle()%></td>
-				<td><%= movie.getReleaseDate()%></td>
-				<td><%= movie.getOverview()%></td>
-			</tr>
-		</tbody>
-		<%} %>
-	</table>
+<div class="container">
+  <div class="row">
+  <%for(Movie movie : movies) { %>
+    <div class="col-xs-6 col-md-3">
+	   <div class="thumbnail"> 
+	      <a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId()%>">  
+     	    <img src="<%= movie.getPosterPath()%>">  
+     	  </a> 	
+     	  <div class="caption">
+     	    Release Date: <%= movie.getReleaseDate() %>
+        	<h3><%= movie.getTitle()%></h3>
+        	<p><%= movie.getVoteAverage() %></p>  	
+      	  </div>       
+        </div>  
+    </div>
+   <%} %>	
+  </div>
+</div>
 	
 </body>
 </html>

@@ -24,7 +24,7 @@ public class UserDao {
 		ma.getTransaction().commit();
 	}
 	
-	public User findUserById(int userId) {
+	public User findUserById(long userId) {
 		ma.getTransaction().begin();
 		User user = ma.find(User.class, userId);
 		ma.getTransaction().commit();
@@ -69,11 +69,12 @@ public class UserDao {
 //		User u1 = dao.findUserByUsernameAndPassword("cheer", "1");
 //		System.out.println(u1);
 //		System.out.println(dao.findUserById(2).getUsername());
-		User user = new User("Pan", "pppp");
-		dao.createUser(user);
+//		User user = new User("Pan", "pppp");
+//		dao.createUser(user);
 //		
 //		User u = dao.findUserByUsername("Cheer");
 //		System.out.println(u.getId());
+//		System.out.println(dao.findUserById(1).getUsername());
 	}
 
 }

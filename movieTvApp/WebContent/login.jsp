@@ -8,7 +8,7 @@
 <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
-<a href="/movieTvApp/register.jsp" class="btn btn-link">New User Register</a>
+<a href="/MovieTvApp/register.jsp" class="btn btn-link">New User Register</a>
 
 <div class="container">
 	<h1>Login</h1>

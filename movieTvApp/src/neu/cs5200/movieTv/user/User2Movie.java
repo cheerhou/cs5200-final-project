@@ -19,13 +19,13 @@ public class User2Movie {
 	@ManyToOne
 	@JoinColumn(name="USER")
 	private User user;
-	private int movie;
+	private long movie;
 	
 	public User2Movie() {
 		super();
 	}
 
-	public User2Movie(User user, int movie) {
+	public User2Movie(User user, long movie) {
 		super();
 		this.user = user;
 		this.movie = movie;
@@ -47,11 +47,11 @@ public class User2Movie {
 		this.user = user;
 	}
 
-	public int getMovie() {
+	public long getMovie() {
 		return movie;
 	}
 
-	public void setMovie(int movie) {
+	public void setMovie(long movie) {
 		this.movie = movie;
 	}
 

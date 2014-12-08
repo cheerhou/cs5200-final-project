@@ -1,65 +1,84 @@
 package neu.cs5200.movieTv.movie;
 
+//@Entity
+//public class Movie {
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name="MOVIE_ID")
+//	private int id;
+////	private int budget;	
+////	private List<Genre> genres;	
+////	private String homepage;
+////	private String title;
+////	private String overview;
+////	private String posterPath;	
+////	private List<Company> productionCompanies;
+////	private List<Country> productionCountries;	
+////	private String releaseDate;
+////	private int runtime;	
+////	private List<Lan> spokenLanguages;
+////	private String status;
+////	private String tagline;
+////	private double voteAverage;
+////	private int voteCount;
+//		
+//}
+
+
+
+import neu.cs5200.movieTv.user.User;
+
 import java.util.List;
 
 
 public class Movie {
+
 	private long id;
-	private int budget;	
-	private List<Genre> genres;	
-	private String homepage;
+	private List<User> users;
+	
 	private String title;
 	private String overview;
-	private String posterPath;	
-	private List<Company> productionCompanies;
-	private List<Country> productionCountries;	
-	private String releaseDate;
-	private int runtime;	
-	private List<Lan> spokenLanguages;
-	private String status;
 	private String tagline;
+	private String releaseDate;
 	private double voteAverage;
-	private int voteCount;
+	private String posterPath;
 	
+	
+
 	public Movie() {
+	}
+	
+	
+
+	public Movie(long id) {
 		super();
-	}
-
-	public Movie(String title) {
-		super();
-		this.title = title;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
 		this.id = id;
 	}
 
-	public int getBudget() {
-		return budget;
+
+
+	public Movie(int movieId, String title) {
+		super();
+		this.id = movieId;
+		this.title = title;
 	}
 
-	public void setBudget(int budget) {
-		this.budget = budget;
+
+
+	public long getId() {
+		return this.id;
 	}
 
-	public List<Genre> getGenres() {
-		return genres;
+	public void setId(long movieId) {
+		this.id = movieId;
 	}
 
-	public void setGenres(List<Genre> genres) {
-		this.genres = genres;
+	public List<User> getUsers() {
+		return this.users;
 	}
 
-	public String getHomepage() {
-		return homepage;
-	}
-
-	public void setHomepage(String homepage) {
-		this.homepage = homepage;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public String getTitle() {
@@ -78,28 +97,12 @@ public class Movie {
 		this.overview = overview;
 	}
 
-	public String getPosterPath() {
-		return posterPath;
+	public String getTagline() {
+		return tagline;
 	}
 
-	public void setPosterPath(String posterPath) {
-		this.posterPath = posterPath;
-	}
-
-	public List<Company> getProductionCompanies() {
-		return productionCompanies;
-	}
-
-	public void setProductionCompanies(List<Company> productionCompanies) {
-		this.productionCompanies = productionCompanies;
-	}
-
-	public List<Country> getProductionCountries() {
-		return productionCountries;
-	}
-
-	public void setProductionCountries(List<Country> productionCountries) {
-		this.productionCountries = productionCountries;
+	public void setTagline(String tagline) {
+		this.tagline = tagline;
 	}
 
 	public String getReleaseDate() {
@@ -110,38 +113,6 @@ public class Movie {
 		this.releaseDate = releaseDate;
 	}
 
-	public int getRuntime() {
-		return runtime;
-	}
-
-	public void setRuntime(int runtime) {
-		this.runtime = runtime;
-	}
-
-	public List<Lan> getSpokenLanguages() {
-		return spokenLanguages;
-	}
-
-	public void setSpokenLanguages(List<Lan> spokenLanguages) {
-		this.spokenLanguages = spokenLanguages;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getTagline() {
-		return tagline;
-	}
-
-	public void setTagline(String tagline) {
-		this.tagline = tagline;
-	}
-
 	public double getVoteAverage() {
 		return voteAverage;
 	}
@@ -149,17 +120,13 @@ public class Movie {
 	public void setVoteAverage(double voteAverage) {
 		this.voteAverage = voteAverage;
 	}
-
-	public int getVoteCount() {
-		return voteCount;
+	
+	public String getPosterPath() {
+		return posterPath;
 	}
 
-	public void setVoteCount(int voteCount) {
-		this.voteCount = voteCount;
+	public void setPosterPath(String posterPath) {
+		this.posterPath = posterPath;
 	}
-
-	
-	
-	
 	
 }

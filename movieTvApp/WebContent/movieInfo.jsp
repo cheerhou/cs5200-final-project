@@ -8,17 +8,22 @@
 </head>
 <body>
 <%
-  String mId = request.getParameter("movieId");
-  int movieId = Integer.parseInt(mId);
+  String movieId = request.getParameter("movieId");
+  String userId = request.getParameter("userId");
+ 
   MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
-  Movie movie = client.findMovieById(movieId);
+  Movie movie = client.findMovieById(Long.parseLong(movieId));
 %>
 
-<div class="jumbotron">
+<form action="mark" method="get">
   <h1><%= movie.getTitle() %></h1>
   <h2><%= movieId%></h2>
   <img src="<%= movie.getPosterPath()%>" class="img-rounded" height="400" width="300">
-  <p><%= movie.getOverview() %></p>
-</div>
+  <p><%= movie.getOverview() %></p>		
+  <input name="userId" value=<%= userId %> type="hidden">
+  <input name="movieId" value=<%= movieId %> type="hidden">
+  <button type="submit" class="btn btn-primary">Mark</button>
+</form>
+
 </body>
 </html>
