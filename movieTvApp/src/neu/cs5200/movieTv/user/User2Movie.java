@@ -54,8 +54,5 @@ public class User2Movie {
 	public void setMovie(long movie) {
 		this.movie = movie;
 	}
-
-	
-	
 	
 }

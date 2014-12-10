@@ -24,12 +24,12 @@ public class User2MovieDao {
 		ma.getTransaction().commit();
 	}
 	
-	public List<Integer> findMovieIdByUserId(int userId) {
+	public List<Long> findMovieIdByUserId(long userId) {
 		ma.getTransaction().begin();
 		
 		Query q = ma.createNamedQuery("um.findByUserId");
 		q.setParameter("userId", userId);
-		List<Integer> movieIdList = q.getResultList();
+		List<Long> movieIdList = q.getResultList();
 		
 		ma.getTransaction().commit();
 		
@@ -38,7 +38,6 @@ public class User2MovieDao {
 	
 	public static void main(String[] args) {
 		User2MovieDao dao = new User2MovieDao();
-
-		System.out.println(dao.findMovieIdByUserId(2));
+		System.out.println(dao.findMovieIdByUserId(1));
 	}
 }

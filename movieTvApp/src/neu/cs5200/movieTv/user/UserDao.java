@@ -65,10 +65,11 @@ public class UserDao {
 	}
 	
 	public static void main(String[] args) {
-		UserDao dao = new UserDao();
-//		User u1 = dao.findUserByUsernameAndPassword("cheer", "1");
-//		System.out.println(u1);
+//		UserDao dao = new UserDao();
+//		User u1 = dao.findUserByUsernameAndPassword("test", "test");
+//		System.out.println(u1.getId());
 //		System.out.println(dao.findUserById(2).getUsername());
+		
 //		User user = new User("Pan", "pppp");
 //		dao.createUser(user);
 //		

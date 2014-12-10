@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if(user == null)
 		{
-			response.sendRedirect("/movieTvApp/login.jsp");
+			response.sendRedirect("/MovieTvApp/login.jsp");
 		}
 		else
 		{

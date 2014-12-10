@@ -117,48 +117,57 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<User2Movie> user2movies;
 	
+	
+	public User() {
+		super();
+	}
+
+
 	public User(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
 
-	public User() {
-		super();
-	}
 
 	public long getId() {
 		return id;
 	}
 
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 	public List<User2Movie> getUser2movies() {
 		return user2movies;
 	}
 
+
 	public void setUser2movies(List<User2Movie> user2movies) {
 		this.user2movies = user2movies;
 	}
-
 	
-
+	
 }

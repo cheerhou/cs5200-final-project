@@ -13,13 +13,13 @@
 <%
 	User user = (User) request.getAttribute("user");
 	User2MovieDao umDao = new User2MovieDao();
-	List<Integer> movieIdList = umDao.findMovieIdByUserId(user.getId());
+	List<Long> movieIdList = umDao.findMovieIdByUserId(user.getId());
 
-	MovieJsonWebServiceClient movieJsonClient = new MovieJsonWebServiceClient();
+	MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
 	ArrayList<Movie> movieList = new ArrayList<Movie>();
 
-	for(int movieId : movieIdList) {
-		movieList.add(movieJsonClient.findMovieById(movieId));
+	for(long movieId : movieIdList) {
+		movieList.add(client.findMovieById(movieId));
 	} 
 
 	//System.out.println(user.getId());
@@ -56,5 +56,6 @@
    <%} %>	
   </div>
 </div>
+
 </body>
 </html>
