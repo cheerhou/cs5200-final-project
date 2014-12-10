@@ -18,23 +18,37 @@
 	String userId = request.getParameter("userId");
 %>
 
-<div class="container">
-  <div class="row">
-  <%for(Movie movie : movies) { %>
-    <div class="col-xs-6 col-md-3">
-	   <div class="thumbnail"> 
-	      <a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId()%>&userId=<%= userId%>">  
-     	    <img src="<%= movie.getPosterPath()%>">  
-     	  </a> 	
-     	  <div class="caption">
-     	    Release Date: <%= movie.getReleaseDate() %>
-        	<h3><%= movie.getTitle()%></h3>
-        	<p>Rate: <%= movie.getVoteAverage() %></p> 	
-      	  </div>       
-        </div>  
-    </div>
-   <%} %>	
-  </div>
+<div class="container-fluid">
+	<div class="row">
+    	<div class="col-sm-3 col-md-2 sidebar">
+	 		<ul class="nav nav-sidebar">
+	      		<li><a href="/MovieTvApp/popularMovies.jsp?userId=<%= userId%>">Popular Movie</a></li>
+	      		<li><a href="/MovieTvApp/topRatedMovies.jsp?userId=<%= userId%>">Top Rated Movie</a></li>
+	      		<li><a href="/MovieTvApp/nowPlayingMovies.jsp?userId=<%= userId%>">Now Playing Movie</a></li>
+	     		 <li><a href="/MovieTvApp/upcomingMovies.jsp?userId=<%= userId%>">Upcoming Movie</a></li>
+	      		<li><a href="/MovieTvApp/latestMovies.jsp?userId=<%= userId%>">Latest Movie</a></li>
+	  		</ul>
+	  	</div>
+	
+
+<!-- 		<div class="container">
+		  <div class="row"> -->
+		  <%for(Movie movie : movies) { %>
+		    <div class="col-xs-6 col-md-3">
+			   <div class="thumbnail"> 
+			      <a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId()%>&userId=<%= userId%>">  
+		     	    <img src="<%= movie.getPosterPath()%>">  
+		     	  </a> 	
+		     	  <div class="caption">
+		     	    Release Date: <%= movie.getReleaseDate() %>
+		        	<h3><%= movie.getTitle()%></h3>
+		        	<p>Rate: <%= movie.getVoteAverage() %></p> 	
+		      	  </div>       
+		        </div>  
+		    </div>
+		   <%} %>	
+	</div>
 </div>
+
 </body>
 </html>

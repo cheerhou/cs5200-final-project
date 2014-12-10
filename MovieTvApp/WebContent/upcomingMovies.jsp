@@ -4,15 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>Movie Search Results</title>
+<title>Upcoming Movies</title>
 <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
+
 <body>
-<h1>Here is your movie results:</h1>
-<%	String movieName = (String) request.getAttribute("movieName");
-	String userId = request.getParameter("userId");
+<%	
 	MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
-	List<Movie> movies = client.findMovieByMovieName(movieName);
+	String urlApi ="http://api.themoviedb.org/3/movie/upcoming?api_key=cb308fc308a03542532cff9b7c2ed4d9";	
+	String json = client.findJson(urlApi, "", "");
+	List<Movie> movies = client.parserMovieJsonList(json);
+	String userId = request.getParameter("userId");
 %>
 
 <div class="container">
@@ -26,13 +28,13 @@
      	  <div class="caption">
      	    Release Date: <%= movie.getReleaseDate() %>
         	<h3><%= movie.getTitle()%></h3>
-        	<p><%= movie.getVoteAverage() %></p>  	
+        	<p>Rate: <%= movie.getVoteAverage() %></p> 	
       	  </div>       
         </div>  
     </div>
    <%} %>	
   </div>
 </div>
-	
+
 </body>
 </html>

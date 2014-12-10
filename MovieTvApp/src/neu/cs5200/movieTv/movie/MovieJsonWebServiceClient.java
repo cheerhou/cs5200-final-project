@@ -87,6 +87,53 @@ public class MovieJsonWebServiceClient {
 		return movies;
 	}
 
+	
+	public Movie parserMovieJson(String json) {
+		Movie movie = new Movie();
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject;
+
+		try {
+			jsonObject = (JSONObject) parser.parse(json);
+
+			long id = (Long) jsonObject.get("id");
+			// boolean adult = (Boolean) jsonObject.get("adult");
+			// int budget = (Integer) jsonObject.get("budget");
+			// String homepage = (String) jsonObject.get("homepage");
+			String title = (String) jsonObject.get("original_title");
+			String overview = (String) jsonObject.get("overview");
+			String posterPath = (String) jsonObject.get("poster_path");
+			String releaseDate = (String) jsonObject.get("release_date");
+			// int runtime = (Integer) jsonObject.get("runtime");
+			// String status = (String) jsonObject.get("status");
+			String tagline = (String) jsonObject.get("tagline");
+			// double voteAverage = (Double) jsonObject.get("vote_average");
+			// int voteCount = (Integer) jsonObject.get("vote_count");
+			//
+			// JSONArray genres = (JSONArray) jsonObject.get("genres");
+			// JSONArray productionCompanies = (JSONArray)
+			// jsonObject.get("production_companies");
+			// JSONArray productionCountries = (JSONArray)
+			// jsonObject.get("production_countries");
+			// JSONArray spokenLanguages = (JSONArray)
+			// jsonObject.get("spoken_languages");
+
+			movie.setId(id);
+			movie.setOverview(overview);
+			movie.setReleaseDate(releaseDate);
+			movie.setTitle(title);
+			movie.setTagline(tagline);
+
+			String imageBaseUrl = "http://image.tmdb.org/t/p/w500";
+			movie.setPosterPath(imageBaseUrl + posterPath);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return movie;
+	}
+	
 	public Movie findMovieById(long movieId) {
 		Movie movie = new Movie();
 		String json = "";

@@ -4,20 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>Movie Search Results</title>
+<title>Latest Movies</title>
 <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
+
 <body>
-<h1>Here is your movie results:</h1>
-<%	String movieName = (String) request.getAttribute("movieName");
-	String userId = request.getParameter("userId");
+
+<%	
 	MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
-	List<Movie> movies = client.findMovieByMovieName(movieName);
+	String urlApi ="http://api.themoviedb.org/3/movie/latest?api_key=cb308fc308a03542532cff9b7c2ed4d9";	
+	String json = client.findJson(urlApi, "", "");
+	Movie movie = client.parserMovieJson(json);
+	String userId = request.getParameter("userId");
 %>
 
 <div class="container">
   <div class="row">
-  <%for(Movie movie : movies) { %>
     <div class="col-xs-6 col-md-3">
 	   <div class="thumbnail"> 
 	      <a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId()%>&userId=<%= userId%>">  
@@ -26,13 +28,12 @@
      	  <div class="caption">
      	    Release Date: <%= movie.getReleaseDate() %>
         	<h3><%= movie.getTitle()%></h3>
-        	<p><%= movie.getVoteAverage() %></p>  	
+        	<p>Rate: <%= movie.getVoteAverage() %></p> 	
       	  </div>       
         </div>  
-    </div>
-   <%} %>	
+    </div>	
   </div>
 </div>
-	
+
 </body>
 </html>

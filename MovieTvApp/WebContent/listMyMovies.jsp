@@ -32,7 +32,8 @@
   	<li role="presentation"><a href="/MovieTvApp/people.jsp">People</a></li>
   	
 	<form class="navbar-form navbar-left" action="search">
-		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">			
+		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">		
+		<input type="hidden" name="userId" value=<%= user.getId()%>>	
 		<button type="submit" class="btn btn-primary">Search</button>
 	</form>
 </ul>
@@ -48,8 +49,7 @@
      	    Release Date: <%= movie.getReleaseDate() %>
         	<h3><%= movie.getTitle()%></h3>
         	<p><%= movie.getOverview() %></p>
-        	<a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId() %>" class="btn btn-primary">Detail</a>
-        	
+        	<a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId() %>" class="btn btn-primary">Detail</a>       	
       	  </div>       
         </div>  
     </div>

@@ -17,9 +17,11 @@ public class SearchMovieServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String movieName = request.getParameter("movieName");
+		String userId =request.getParameter("userId");
 		
-		//pass user obj to next page
+		//pass user obj and user id to next page
 		request.setAttribute("movieName", movieName);
+		request.setAttribute("userId", userId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/movieSearchResults.jsp");
 		dispatcher.forward(request, response);
 		
