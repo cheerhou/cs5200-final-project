@@ -15,6 +15,20 @@
 	List<Movie> movies = client.parserMovieJsonList(json);
 	String userId = request.getParameter("userId");
 %>
+<ul class="nav nav-tabs">
+	<!-- <li role="presentation" class="active"><a href="#">Popular Movie</a></li> -->
+  	<li role="presentation"><a href="/MovieTvApp/popularMovies.jsp?userId=<%= userId%>">Popular Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/topRatedMovies.jsp?userId=<%= userId%>">Top Rated Movie</a></li>
+  	<li role="presentation" class="active"><a href="#">Now Playing Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/upcomingMovies.jsp?userId=<%= userId%>">Upcoming Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/latestMovies.jsp?userId=<%= userId%>">Latest Movie</a></li>
+  	
+	<form class="navbar-form navbar-left" action="search">
+		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">		
+		<input type="hidden" name="userId" value=<%= userId%>>	
+		<button type="submit" class="btn btn-primary">Search</button>
+	</form>
+</ul>
 
 <div class="container">
   <div class="row">

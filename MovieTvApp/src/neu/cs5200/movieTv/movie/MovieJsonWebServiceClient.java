@@ -28,8 +28,7 @@ public class MovieJsonWebServiceClient {
 		String json = "";
 		try {
 			URL url = new URL(urlString);
-			HttpURLConnection connection = (HttpURLConnection) url
-					.openConnection();
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
 			InputStream stream = connection.getInputStream();
 			InputStreamReader reader = new InputStreamReader(stream);
@@ -60,6 +59,7 @@ public class MovieJsonWebServiceClient {
 
 			for (Object o : results) {
 				JSONObject result = (JSONObject) o;
+				
 				long id = (Long) result.get("id");
 				String title = (String) result.get("original_title");
 				String overview = (String) result.get("overview");
@@ -80,7 +80,8 @@ public class MovieJsonWebServiceClient {
 				String imageBaseUrl = "http://image.tmdb.org/t/p/w500";
 				movie.setPosterPath(imageBaseUrl + posterPath);
 
-				movies.add(movie);}
+				movies.add(movie);
+				}
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -236,8 +237,8 @@ public class MovieJsonWebServiceClient {
 	}
 
 	public static void main(String[] args) {
-		MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
-		System.out.println(client.findMovieById(68721).getPosterPath());
+//		MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
+//		System.out.println(client.findMovieById(68721).getPosterPath());
 
 		// System.out.println(client.findMovieByMovieName("iron man").get(1).getId());
 		// System.out.println(client.findMovieByMovieName("Interstellar").get(1).getId());

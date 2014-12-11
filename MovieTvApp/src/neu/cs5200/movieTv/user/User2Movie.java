@@ -16,9 +16,11 @@ public class User2Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name="USER")
 	private User user;
+	
 	private long movie;
 	
 	public User2Movie() {

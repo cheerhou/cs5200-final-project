@@ -9,16 +9,23 @@
 </head>
 
 <body>
-<h1>popular movies</h1>
 <%	
 	MovieJsonWebServiceClient client = new MovieJsonWebServiceClient();
 	String urlApi ="http://api.themoviedb.org/3/movie/popular?api_key=cb308fc308a03542532cff9b7c2ed4d9";	
 	String json = client.findJson(urlApi, "", "");
 	List<Movie> movies = client.parserMovieJsonList(json);
 	String userId = request.getParameter("userId");
+	
+	//load popular movie to db
+	//PopularMovieDao dao = new PopularMovieDao();
+	//dao.createTop10PopMovies(movies);
+	
+
+	
+	//System.out.println(movies.get(9).getTitle());
 %>
 
-<div class="container-fluid">
+<%-- <div class="container-fluid">
 	<div class="row">
     	<div class="col-sm-3 col-md-2 sidebar">
 	 		<ul class="nav nav-sidebar">
@@ -28,8 +35,22 @@
 	     		 <li><a href="/MovieTvApp/upcomingMovies.jsp?userId=<%= userId%>">Upcoming Movie</a></li>
 	      		<li><a href="/MovieTvApp/latestMovies.jsp?userId=<%= userId%>">Latest Movie</a></li>
 	  		</ul>
-	  	</div>
-	
+	  	</div> --%>
+
+<ul class="nav nav-tabs">
+	<li role="presentation" class="active"><a href="#">Popular Movie</a></li>
+  	<%-- <li role="presentation"><a href="/MovieTvApp/popularMovies.jsp?userId=<%= userId%>">Popular Movie</a></li> --%>
+  	<li role="presentation"><a href="/MovieTvApp/topRatedMovies.jsp?userId=<%= userId%>">Top Rated Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/nowPlayingMovies.jsp?userId=<%= userId%>">Now Playing Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/upcomingMovies.jsp?userId=<%= userId%>">Upcoming Movie</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/latestMovies.jsp?userId=<%= userId%>">Latest Movie</a></li>
+  	
+	<form class="navbar-form navbar-left" action="search">
+		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">		
+		<input type="hidden" name="userId" value=<%= userId%>>	
+		<button type="submit" class="btn btn-primary">Search</button>
+	</form>
+</ul>
 
 <!-- 		<div class="container">
 		  <div class="row"> -->

@@ -92,9 +92,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+
+import neu.cs5200.movieTv.group.DisGroup;
 
 
 @NamedQueries({	
@@ -107,6 +115,7 @@ import javax.persistence.OneToMany;
 	})
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -114,9 +123,13 @@ public class User {
 	
 	private String username;
 	private String password;
+	
 	@OneToMany(mappedBy="user")
 	private List<User2Movie> user2movies;
 	
+	@OneToMany(mappedBy="user")
+	private List<DisGroup> groups;
+
 	
 	public User() {
 		super();

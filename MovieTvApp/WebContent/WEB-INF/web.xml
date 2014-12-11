@@ -33,12 +33,38 @@
     <servlet-name>SearchMovieServlet</servlet-name>
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>MarkMovieServlet</servlet-name>
     <servlet-class>neu.cs5200.movieTv.movie.MarkMovieServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MarkMovieServlet</servlet-name>
     <url-pattern>/mark</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CreateGroupServlet</servlet-name>
+    <servlet-class>neu.cs5200.movieTv.group.CreateGroupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CreateGroupServlet</servlet-name>
+  	<url-pattern>/createGroup</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SearchTvServlet</servlet-name>
+    <servlet-class>neu.cs5200.movieTv.tv.SearchTvServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchTvServlet</servlet-name>
+    <url-pattern>/searchTvAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SearchPeopleServlet</servlet-name>
+    <servlet-class>neu.cs5200.movieTv.people.SearchPeopleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchPeopleServlet</servlet-name>
+    <url-pattern>/searchPeopleAction</url-pattern>
   </servlet-mapping>
 </web-app>

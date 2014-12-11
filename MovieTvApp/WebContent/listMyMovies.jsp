@@ -28,14 +28,15 @@
 <ul class="nav nav-tabs">
 	<li role="presentation" class="active"><a href="#">Home</a></li>
   	<li role="presentation"><a href="/MovieTvApp/popularMovies.jsp?userId=<%= user.getId()%>">Movie</a></li>
-  	<li role="presentation"><a href="/MovieTvApp/popularTvs.jsp">TV</a></li>
-  	<li role="presentation"><a href="/MovieTvApp/people.jsp">People</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/popularTvs.jsp?userId=<%= user.getId()%>">TV</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/popularPeople.jsp?userId=<%= user.getId()%>">People</a></li>
+  	<li role="presentation"><a href="/MovieTvApp/group.jsp?userId=<%= user.getId()%>">Group</a></li>
   	
-	<form class="navbar-form navbar-left" action="search">
+<%-- 	<form class="navbar-form navbar-left" action="search">
 		<input type="input" name="movieName" class="form-control" placeholder="Movie Name">		
 		<input type="hidden" name="userId" value=<%= user.getId()%>>	
 		<button type="submit" class="btn btn-primary">Search</button>
-	</form>
+	</form> --%>
 </ul>
    
 
@@ -43,13 +44,14 @@
   <div class="row">
   <%for(Movie movie : movieList) { %>
     <div class="col-xs-6 col-md-3">
-	    <div class="thumbnail">   
+	    <div class="thumbnail">  
+	      <a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId()%>"> 
      	  <img src="<%= movie.getPosterPath()%>">   	
      	  <div class="caption">
      	    Release Date: <%= movie.getReleaseDate() %>
         	<h3><%= movie.getTitle()%></h3>
-        	<p><%= movie.getOverview() %></p>
-        	<a href="/MovieTvApp/movieInfo.jsp?movieId=<%= movie.getId() %>" class="btn btn-primary">Detail</a>       	
+        	<%-- <p><%= movie.getOverview() %></p> --%>
+        	</a>      	
       	  </div>       
         </div>  
     </div>
